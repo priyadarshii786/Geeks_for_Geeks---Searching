@@ -11,19 +11,22 @@ class Solution {
     int minRepeats(string A, string B) {
         // code here
         // jai ganesh
-        
-        string rep = A;
-        int cnt=1;
-        while(A.size()<B.size()){
-            A+=rep;
-            cnt++;
-        }
+       int c=1;
+       string temp=A;
+       while(A.size()<B.size())
+       {
+           A+=temp;
+           c++;
+       }
+       if(A.find(B)!=-1)
+       return c;
        
-        if(A.find(B)!=-1) return cnt;
-         A+=rep;
-         cnt++;
-        if(A.find(B)!=-1) return cnt;
-        return -1;
+       A+=temp;
+       
+       if(A.find(B)!=-1)
+       return c+1;
+       
+       return -1;
     }
 };
 
